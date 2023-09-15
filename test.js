@@ -1,12 +1,24 @@
 const ADB = require("./main.js")
 
-const device = new ADB("fadsfd")
+const device = new ADB("5554")
 
 
 async function test() {
-    console.log('1')
-    await device.getADBDevices()
-    console.log('2')
+    // device.getADBDevices()
+    const x =  await device.listApps()
+        .then((res) => {
+            if(res != null) {
+                return res
+            }
+        })
+        .catch((err) => {
+            console.log("error with List")
+        })
+
+    console.log("xxxx", x)
 }
 
 test()
+
+// const x = device.getADBDevices()
+// console.log('c', x)
