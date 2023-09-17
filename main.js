@@ -1,6 +1,5 @@
-const {
-    exec
-} = require('child_process')
+const { exec } = require('child_process')
+const { resolve } = require('path')
 
 class ADB {
     constructor(deviceId) {
@@ -87,7 +86,7 @@ class ADB {
     // This function returns a promise with all the apps 
     listApps() {
 
-        return new Promise((resolve, reject) => [
+        return new Promise((resolve, reject) => {
             exec('adb ' + this.specifyDevice + ' shell pm list packages', (error, stdout, stderr) => {
                 if (error || stderr) {
                     console.log(`error: ` + error)
@@ -102,14 +101,37 @@ class ADB {
 
             })
 
-        ])
+    })
 
     }
 
-    // checkFor(app) {
-    //     const x = runTerminalCommand('devices')
-    //     console.log('fdsafad', x)
-    // }
+    async checkFor(app) {
+        const listOfApps = await this.listApps()
+        if(listOfApps.includes(app)) {
+            return true
+        }
+        return false
+    }
+
+    getScreenInfo() {
+        
+        return new Promise((resolve, reject) => {
+            {
+                exec('adb ' + this.specifyDevice + ' shell wm size', (error, stdout, stderr) =>  {
+                    if(error || stderr) {
+                        console.log(`error: ` + error)
+                        console.log(`stderr: ` + stderr)
+                        reject()
+                    }
+    
+                    if(stdout) {
+                        const newStdout = stdout.slice(15)
+                        resolve(newStdout)
+                    }
+                })
+            }
+        })
+    }
 
 }
 
