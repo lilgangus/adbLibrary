@@ -8,19 +8,18 @@ class ADB {
     }
 
 
+    // This function returns a promise with all the devices currently connected
     getADBDevices() {
-        // this runs the adb 'devices' command
         runTerminalCommand('devices')
 
     }
 
+    // This function returns a promise with all the devices currently connected
     stopDevice() {
-    
         runTerminalCommand(this.specifyDevice + 'emu kill')
     }
 
-    // for this  to run, ffmpeg/ffplay must be installed on the computer
-    // https://stackoverflow.com/questions/27766712/using-adb-to-capture-the-screen, look into this for streaming?
+    // For this to run, ffmpeg/ffplay must be installed on the computer
     streamScreen(recordStream, recordTime) {
 
         runTerminalCommand(this.specifyDevice + 'shell screenrecord --output-format=h264 - | ffplay -framerate 30 -probesize 32 -sync video -')
@@ -135,8 +134,7 @@ class ADB {
 
 }
 
-// Potentially put this in a utils folder
-// Potentiall add promises to this instead of just using a callback? Prevent callback hell?
+// Potentially add promises to this instead of just using a callback to prevent callback errors? 
 function runTerminalCommand(command) {
     exec('adb ' + command, (error, stdout, stderr) => {
         if (error || stderr) {
