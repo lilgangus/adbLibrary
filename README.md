@@ -38,47 +38,46 @@ This section outlines the available functions to call on a device instance.
 
 - **Description**: Returns a promise with all the devices currently connected.
 
-# `stopDevice()`
+`stopDevice()`
 
 - **Description**: Stops all active devices.
 
-# `streamScreen()`
+`streamScreen()`
 
 - **Description**: Streams the device's screen (uses ffmpeg/ffplay).
 
-# `takeScreenshot()`
+`takeScreenshot()`
 
 - **Description**: Takes a screenshot of the device's screen.
 
-# `recordScreen()`
+`recordScreen()`
 
 - **Description**: Records the device's screen, intially saved onto device, then pulled to computer.
 
-# `takeScreenshot()`
+`takeScreenshot()`
 
 - **Description**: Takes a screenshot of the device's screen, photo is deleted from device and only saved on host.
 
-# `tapScreen(x, y)`
+`tapScreen(x, y)`
 
 - **Description**: Simulates a tap on the device's screen at the specified coordinates.
 
-# `swipe(xInitial, yInitial, xFinal, yFinal, duration)`
+`swipe(xInitial, yInitial, xFinal, yFinal, duration)`
 
 - **Description**: Simulates a swipe on the device's screen from the initial coordinates to the final coordinates over the specified duration.
 
-# `type(text)`
+`type(text)`
 
 - **Description**: Types the specified text on the device's screen.
 
-# `listApps()`
+`listApps()`
 
 - **Description**: Lists all installed applications on the device, formatting in a readable format, ignoring packages.
 
-
-# `checkFor(app)`
+`checkFor(app)`
 
 - **Description**: Searches device for the specified app, returns true if found, false if not. Note: This is an async function, so it must be awaited.
 
-# `getScreenInfo()`
+`getScreenInfo()`
 
 - **Description**: Returns details about the devices screen. 
