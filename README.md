@@ -1,11 +1,6 @@
-# adbLibrary
- 
-This is a JS libary to control an android emulator thorugh the Android Debug Bridge (ADB). It wraps some adb ADB commands and provides a more user-friendly interface to control an emulator. 
+# JavaScript ADB Library
 
-
-# ADB JavaScript Library
-
-This ADB JavaScript library provides a simplified and asynchronous interface to interact with Android devices via ADB (Android Debug Bridge). It allows for performing various actions such as listing devices, taking screenshots, recording the screen, input simulation (taps, swipes, typing), and more, programmatically through Node.js.
+This is a JS ADB library that provides a simplified  interface to interact with Android devices via ADB (Android Debug Bridge). It allows for performing various actions such as listing devices, taking screenshots, recording the screen, input simulation (taps, swipes, typing), and more through Node.js.
 
 ## Features
 
@@ -19,7 +14,7 @@ This ADB JavaScript library provides a simplified and asynchronous interface to 
 
 For screen streaming and recording, `ffmpeg`/`ffplay` must be installed.
 
-To use the library in your project, add the `main.js` file to your project directory.
+To use the library in your project, add the `main.js` file to your project directory or clone the repository.
 
 ## Usage
 
@@ -37,7 +32,7 @@ const device = new ADB(<DeviceNumber>);
 
 ## Functions
 
-This section outlines the available functions in the ADB library.
+This section outlines the available functions to call on a device instance.
 
 # `getADBDevices()`
 
