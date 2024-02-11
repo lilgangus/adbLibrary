@@ -34,7 +34,7 @@ const device = new ADB(<DeviceNumber>);
 
 This section outlines the available functions to call on a device instance.
 
-# `getADBDevices()`
+getADBDevices()
 
 - **Description**: Returns a promise with all the devices currently connected.
 
